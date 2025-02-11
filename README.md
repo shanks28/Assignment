@@ -74,6 +74,7 @@ API Endpoints
 | --- | --- | --- |
 | POST | `register/` | Register a new user |
 | POST | `login/` | Login user and get token |
+| GET | `/issues/filter/<str:status>/<str:assignee_username>/` | Get issues by status and assignee |
 | POST | `/create_ticket/` | Create a new issue |
 | PUT | `/update_ticket/` | Update an issue |
 
