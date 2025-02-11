@@ -23,5 +23,10 @@ from issues_tracker import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("index/",index,name="root"),
-    path("root/",views.index,name="root1")
+    path("root/",views.index,name="root1"),
+    path("register/",views.register_user,name="register"),
+    path("login/",views.login_user,name="login"),
+    path("create_ticket/",views.create_ticket,name="create_ticket"),
+    path("update_ticket/",views.update_ticket,name="update_ticket"),
+    path("logout/",views.logout_user,name="logout"),
 ]

@@ -82,7 +82,7 @@ try:
         dbname="postgres",
         user="user",
         password="password",
-        host="localhost",
+        host="db",
         port="5432"
     )
     conn.close()
@@ -93,7 +93,7 @@ try:
             'NAME': 'postgres',
             'USER': 'user',
             'PASSWORD': 'password',
-            'HOST': 'localhost',
+            'HOST': 'db',
             'PORT': '5432',
         }
     }
