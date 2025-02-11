@@ -96,3 +96,28 @@ def logout_user(request):
         logout(request)
         return JsonResponse({"Message":"User logged out","status_code":200})
     return JsonResponse({"message":"Invalid request method","status_code":405})
+@csrf_exempt
+def get_ticket(request,status,assignee_username=None):
+    try:
+        if request.method=="GET":
+            tickets=Ticket.objects.filter(status=status)
+            if assignee_username:
+                try:
+                    assignee=User.objects.get(username=assignee_username)
+                    tickets=tickets.filter(assignee=assignee)
+                except Exception as e:
+                    return JsonResponse({"Message":"User not found","status_code":400})
+            ticket_list=[
+                {"title": issue.title,
+                    "description": issue.description,
+                    "status": issue.status,
+                    "assignee": issue.assignee.username if issue.assignee else None,
+                    "created_at": issue.created_at,
+                    "updated_at": issue.updated_at,
+                }
+                for issue in tickets
+            ]
+            return JsonResponse({"Tickets": ticket_list})
+    except Exception as e:
+        return JsonResponse({"Message":str(e)})
+

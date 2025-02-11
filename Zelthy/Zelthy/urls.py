@@ -29,4 +29,5 @@ urlpatterns = [
     path("create_ticket/",views.create_ticket,name="create_ticket"),
     path("update_ticket/",views.update_ticket,name="update_ticket"),
     path("logout/",views.logout_user,name="logout"),
+    path("get_ticket/<str:status>/<str:assignee_username>/",views.get_ticket,name="filter-by-status,name")
 ]
