@@ -80,7 +80,7 @@ API Endpoints
 | PUT | `/update_ticket/` | Update an issue |
 
 ### System Design
-####Note:APIGATEWAY(Yet to add)
+###Note:APIGATEWAY(Yet to add)
 ![image](https://github.com/user-attachments/assets/04e3a84e-0c08-452d-b4d6-3c4ea8f4936d)
 
 
