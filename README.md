@@ -1,30 +1,112 @@
-# Backend assignment repository template
+Issue Management System
+=======================
 
-This is a template repository for submitting assignment for the Backend developer internship at Zelthy. All those who are submitting the backend assignment must use this template.
+Overview
+--------
 
-Assignment link: https://zelthy.com/assignments/backend-intern
+This is an **Issue Management System** built using the **Zango framework** and **PostgreSQL**. The system allows users to **authenticate**, **create**, **assign**, and **update issues** while tracking their statuses. The application is fully **Dockerized** to ensure seamless deployment and scalability.
 
-Submission form: https://forms.gle/tMMQn7ofrpEme88z5
+Features
+--------
 
-### How to use this template?
+### 1\. User Authentication
 
-1. If you are reading this on GitHub, click the "use this template" dropdown in the top right corner of the page and select "Create a new repository".
-<img width="1470" alt="Screenshot 2025-02-07 at 6 10 26 PM" src="https://github.com/user-attachments/assets/360f44ae-57e8-4c47-b768-cbfd95b3aa0a" />
+-   Allows **user registration** and **login**.
+-   Uses **Zango's built-in authentication system** for secure user management.
 
-2. Next you will be redirected to create a new repository page on GitHub with this repository as a template. Fill the repository name and description and click "Create repository".
-<img width="1470" alt="Screenshot 2025-02-07 at 3 09 25 PM" src="https://github.com/user-attachments/assets/17bd7a00-99fb-4ff6-8003-4b96506189f3" />
+### 2\. Issue Management
 
-3. And thats it! A new repository using this template has been created for you!
+-   Users can **create issues** with:
+    -   **Title**
+    -   **Description**
+    -   **Status** (Open, In Progress, Resolved)
+    -   **Assignee** (Assign issue to another user)
+-   Users can **update the status** of an issue.
+-   Issues include **timestamps** for creation and updates.
 
-### How to submit the assignment?
+Technical Stack
+---------------
 
-1. Clone the repository that you created using the instructions above.
+-   **Framework**: [Zango](https://zango.dev/)
+-   **Database**: PostgreSQL
+-   **Containerization**: Docker
+-   **API Endpoints**: RESTful API for all functionalities
+-   **Validation & Error Handling**: Ensures robust request validation
 
-2. Add and commit your changes to that repository.
+Installation
+------------
 
-3. Push the changes to github.
+### Prerequisites
 
-4. Go to the submission form and fill the details and submit the assignment.
+Ensure you have the following installed:
 
-## Happy coding!
->>>>>>> 3d70554050977c430547f674e33ec37bb459e48d
+-   **Docker** & **Docker Compose**
+-   **Python 3.x**
+-   **PostgreSQL**
+
+### Steps to Run
+
+1.  **Clone the repository**:
+
+    ```
+    git clone https://github.com/yourusername/issue-management-system.git
+    cd issue-management-system
+
+    ```
+
+2.  **Set up environment variables**: Create a `.env` file in the root directory and specify:
+
+    ```
+    DATABASE_URL=postgresql://user:password@db:5432/issue_db
+    SECRET_KEY=your_secret_key
+
+    ```
+
+3.  **Build and run using Docker**:
+
+    ```
+    docker-compose up --build
+
+    ```
+
+4.  **Run database migrations**:
+
+    ```
+    docker-compose exec web zango migrate
+
+    ```
+
+5.  **Access the application**:
+
+    -   API Documentation: `http://localhost:8000/docs`
+    -   Admin Panel: `http://localhost:8000/admin`
+
+API Endpoints
+-------------
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| POST | `/auth/register/` | Register a new user |
+| POST | `/auth/login/` | Login user and get token |
+| GET | `/issues/` | Retrieve all issues |
+| POST | `/issues/` | Create a new issue |
+| PUT | `/issues/{id}/` | Update an issue |
+| DELETE | `/issues/{id}/` | Delete an issue |
+
+Contributing
+------------
+
+1.  Fork the repository.
+2.  Create a feature branch.
+3.  Commit your changes.
+4.  Push to your branch.
+5.  Submit a pull request.
+
+License
+-------
+
+This project is licensed under the **MIT License**.
+
+* * * * *
+
+**Happy Coding!** 🚀
