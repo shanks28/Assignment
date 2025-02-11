@@ -51,6 +51,7 @@ Ensure you have the following installed:
     ```
     git clone https://github.com/shanks28/.git](https://github.com/shanks28/Assignment.git
     cd Assignment
+    cd Zelthy
 
     ```
 
